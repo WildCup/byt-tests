@@ -1,5 +1,6 @@
 package b_Money;
 
+import java.util.AbstractCollection;
 import java.util.Hashtable;
 
 public class Bank {
@@ -38,6 +39,15 @@ public class Bank {
 	 * @param accountid The ID of the account
 	 * @throws AccountExistsException If the account already exists
 	 */
+	public void openAccount(String accountid, Account account) throws AccountExistsException {
+		if (accountlist.containsKey(accountid)) {
+			throw new AccountExistsException();
+		} else {
+			// Create a new account and put it into the accountlist
+			accountlist.put(accountid, account);
+		}
+	}
+
 	public void openAccount(String accountid) throws AccountExistsException {
 		if (accountlist.containsKey(accountid)) {
 			throw new AccountExistsException();

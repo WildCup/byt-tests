@@ -3,10 +3,12 @@ package b_Money;
 import java.util.Hashtable;
 
 public class Account {
+	private String name;
 	private Money content;
 	private Hashtable<String, TimedPayment> timedpayments = new Hashtable<String, TimedPayment>();
 
 	Account(String name, Currency currency) {
+		this.name = name;
 		this.content = new Money(0, currency);
 	}
 
@@ -92,6 +94,7 @@ public class Account {
 
 		/* Return value indicates whether or not a transfer was initiated */
 		public Boolean tick() {
+			next--;
 			if (next == 0) {
 				next = interval;
 
@@ -105,7 +108,6 @@ public class Account {
 				}
 				return true;
 			} else {
-				next--; // Move this line outside the if block
 				return false;
 			}
 		}

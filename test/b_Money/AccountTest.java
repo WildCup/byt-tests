@@ -15,9 +15,9 @@ public class AccountTest {
 	public void setUp() throws Exception {
 		SEK = new Currency("SEK", 0.15);
 		SweBank = new Bank("SweBank", SEK);
-		SweBank.openAccount("Alice");
+		SweBank.openAccount("Alice", new Account("Alice", SEK));
 		testAccount = new Account("Hans", SEK);
-		SweBank.openAccount("Hans");
+		SweBank.openAccount("Hans", testAccount);
 		testAccount.deposit(new Money(10000000, SEK));
 
 		SweBank.deposit("Alice", new Money(1000000, SEK));
