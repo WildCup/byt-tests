@@ -23,7 +23,7 @@ public class Account {
 		TimedPayment tp = new TimedPayment(interval, next, amount, this, tobank, toaccount);
 		timedpayments.put(id, tp);
 	}
-	
+
 	/**
 	 * Remove a timed payment
 	 * @param id Id of timed payment to remove
@@ -31,7 +31,7 @@ public class Account {
 	public void removeTimedPayment(String id) {
 		timedpayments.remove(id);
 	}
-	
+
 	/**
 	 * Check if a timed payment exists
 	 * @param id Id of timed payment to check for
@@ -45,10 +45,10 @@ public class Account {
 	 */
 	public void tick() {
 		for (TimedPayment tp : timedpayments.values()) {
-			tp.tick(); tp.tick();
+			tp.tick();
 		}
 	}
-	
+
 	/**
 	 * Deposit money to the account
 	 * @param money Money to deposit.
@@ -56,7 +56,7 @@ public class Account {
 	public void deposit(Money money) {
 		content = content.add(money);
 	}
-	
+
 	/**
 	 * Withdraw money from the account
 	 * @param money Money to withdraw.
@@ -80,7 +80,7 @@ public class Account {
 		private Money amount;
 		private Bank tobank;
 		private String toaccount;
-		
+
 		TimedPayment(Integer interval, Integer next, Money amount, Account fromaccount, Bank tobank, String toaccount) {
 			this.interval = interval;
 			this.next = next;
@@ -98,19 +98,16 @@ public class Account {
 				fromaccount.withdraw(amount);
 				try {
 					tobank.deposit(toaccount, amount);
-				}
-				catch (AccountDoesNotExistException e) {
+				} catch (AccountDoesNotExistException e) {
 					/* Revert transfer.
 					 * In reality, this should probably cause a notification somewhere. */
 					fromaccount.deposit(amount);
 				}
 				return true;
-			}
-			else {
-				next--;
+			} else {
+				next--; // Move this line outside the if block
 				return false;
 			}
 		}
 	}
-
 }
