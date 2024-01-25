@@ -17,21 +17,21 @@ public class PointTest {
 	public void testAdd() {
 		Point res1 = p1.add(p2);
 		Point res2 = p1.add(p3);
-		
-		assertEquals(4, res1.x);
-		assertEquals(-21, res1.y);
-		assertEquals(-3, res2.x);
-		assertEquals(12, res2.x);
+
+		assertEquals(4, (int)res1.x);
+		assertEquals(-21, (int)res1.y);
+		assertEquals(-3, (int)res2.x);
+		assertEquals(12, (int)res2.x);
 	}
 	
 	public void testSub() {
 		Point res1 = p1.sub(p2);
 		Point res2 = p1.sub(p3);
 		
-		assertEquals(4, res1.x);
-		assertEquals(-21, res1.y);
-		assertEquals(-3, res2.x);
-		assertEquals(12, res2.x);
+		assertEquals(4, (int)res1.x);
+		assertEquals(-21, (int)res1.y);
+		assertEquals(-3, (int)res2.x);
+		assertEquals(12, (int)res2.x);
 	}
 
 }

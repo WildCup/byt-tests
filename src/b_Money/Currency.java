@@ -25,14 +25,14 @@ public class Currency {
 	 * @return The value of amount in the "universal currency"
 	 */
 	public Integer universalValue(Integer amount) {
-		
+		return 0;
 	}
 
 	/** Get the name of this Currency.
 	 * @return name of Currency
 	 */
 	public String getName() {
-		
+		return "0";
 	}
 	
 	/** Get the rate of this Currency.
@@ -40,7 +40,7 @@ public class Currency {
 	 * @return rate of this Currency
 	 */
 	public Double getRate() {
-		
+		return 0d;
 	}
 	
 	/** Set the rate of this currency.
@@ -57,6 +57,6 @@ public class Currency {
 	 * @param othercurrency The other Currency
 	*/
 	public Integer valueInThisCurrency(Integer amount, Currency othercurrency) {
-		
+		return 0;
 	}
 }
